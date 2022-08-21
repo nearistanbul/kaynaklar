@@ -1,1 +1,0 @@
-pek yakında
