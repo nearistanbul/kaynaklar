@@ -6,3 +6,7 @@
 [Alexander Skidanov - The authoritative guide to Blockchain Sharding, part 1](https://medium.com/nearprotocol/the-authoritative-guide-to-blockchain-sharding-part-1-1b53ed31e060)</br>
 
 [What is NEAR Protocol? NEAR Explained with Animations](https://github.com/nearistanbul/resources/edit/main/resources.md)</br>
+
+
+Near smartcontract geliştirmek için kaynakları : 
+Başlanıç noktası : https://near.org/developers/
