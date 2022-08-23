@@ -8,5 +8,5 @@
 [What is NEAR Protocol? NEAR Explained with Animations](https://github.com/nearistanbul/resources/edit/main/resources.md)</br>
 
 
-Near smartcontract geliştirmek için kaynakları : 
-Başlanıç noktası : https://near.org/developers/
+# Near üzerinde smartcontract geliştirmek için başlıca kaynaklar : 
+[Başlanıç noktası](https://near.org/developers/)</br>
