@@ -10,3 +10,6 @@
 
 # Near üzerinde smartcontract geliştirmek için başlıca kaynaklar : 
 [Başlanıç noktası](https://near.org/developers/)</br>
+[Web2 gelistiricilerine Near Academy 45dk`lik Baslangic seviyesi egitimi ](https://near.academy/)</br>
+[Odullu Near Development 101 egitimi](https://dacade.org/communities/near/courses/near-101)</br>
+[Near Universty](https://www.near.university/)</br>
