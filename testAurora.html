@@ -1,0 +1,110 @@
+<html>
+ 
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+  
+<body>
+
+<script>
+    //Our goal here is just to show you how you can simply get information from your favorite blockchains.
+    //In addition, we thought of it as an application and used some 3rd party elements (such as sending telegram message), you can reach detailed information about them from the internet.
+    //In this example, the details of this will not be specified.
+
+
+    //First you have to create an Infura account or other JSON RPC source, and put the API key or link bellow!!
+    const web3 = new Web3("https://aurora-mainnet.infura.io/v3/YOUR+API+KEY");
+    //Get the contract address from aurorascan.dev that you want to collect information for.
+    const contractAddress = "0x4988a896b1227218e4a686fde5eabdcabd91571f";
+    // Get the ABI Json data from aurorascan.dev, If contract is not published there , you can try to use other blockchain`s(etherscan, bscscan etc) contract ABI`s for the similar contracts.
+    var abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_upgradedAddress","type":"address"}],"name":"deprecate","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"deprecated","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_evilUser","type":"address"}],"name":"addBlackList","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"upgradedAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balances","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"maximumFee","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"_totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"unpause","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_maker","type":"address"}],"name":"getBlackListStatus","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"address"}],"name":"allowed","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"paused","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"who","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"pause","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getOwner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"newBasisPoints","type":"uint256"},{"name":"newMaxFee","type":"uint256"}],"name":"setParams","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"amount","type":"uint256"}],"name":"issue","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"amount","type":"uint256"}],"name":"redeem","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"basisPointsRate","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"isBlackListed","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_clearedUser","type":"address"}],"name":"removeBlackList","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"MAX_UINT","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_blackListedUser","type":"address"}],"name":"destroyBlackFunds","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"_initialSupply","type":"uint256"},{"name":"_name","type":"string"},{"name":"_symbol","type":"string"},{"name":"_decimals","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"amount","type":"uint256"}],"name":"Issue","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"amount","type":"uint256"}],"name":"Redeem","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"newAddress","type":"address"}],"name":"Deprecate","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"feeBasisPoints","type":"uint256"},{"indexed":false,"name":"maxFee","type":"uint256"}],"name":"Params","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_blackListedUser","type":"address"},{"indexed":false,"name":"_balance","type":"uint256"}],"name":"DestroyedBlackFunds","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_user","type":"address"}],"name":"AddedBlackList","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_user","type":"address"}],"name":"RemovedBlackList","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[],"name":"Pause","type":"event"},{"anonymous":false,"inputs":[],"name":"Unpause","type":"event"}];
+	var contract = new web3.eth.Contract(abi,contractAddress);
+
+    async function getTxValue(hash)
+    {
+        var result = await web3.eth.getTransaction(hash);
+        var input = result.input;
+        var len = input.length-10;
+        var method = String(result.input).slice(0,10);
+        if(method != "0xa9059cbb") // Function: transfer(address recipient, uint256 amount) ***, To find the function sign hash, open the transaction with transfer method and check the input data  
+            return 0;
+        var to = String(input).slice(10,len/2+10);
+        var value = String(input).slice(-1*len/2);
+        value = ((web3.utils.toBN(value)).toString())/10**6; // to get decimals -> Function: _decimals()
+        return value;
+    }
+
+    var telegram_bot_id = 'YOUR_TELEGRAM_BOT_ID';
+    var chat_id = '_YOUR_CHAT_ID';
+
+    function send_message (msg) 
+    { 
+        var settings = { 
+             "async": true, 
+             "crossDomain": true, 
+             "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage", 
+             "method": "POST", 
+             "headers": { 
+                 "Content-Type": "application/json", 
+                 "cache-control": "no-cache" 
+             }, 
+             "data": JSON.stringify({ 
+                 "chat_id": chat_id, 
+                 "text": msg 
+             }) 
+         };
+
+         $.ajax(settings).done(function(response) { 
+             console.log(response); 
+         }); 
+        
+         return false; 
+     }; 
+
+    var blockTotalVolume =0;
+    async function main()
+    {
+		var block = await web3.eth.getBlockNumber();
+        var result = await contract.getPastEvents("allEvents", {fromBlock: block, toBlock: block});
+
+	    console.log("Total :",result.length.toString(),"events fetching...");
+        var txs = [];
+        
+        if(result.length > 0)
+            for(let i = 0; i < result.length; ++i)
+            {
+                var x = await getTxValue(result[i].transactionHash);
+                blockTotalVolume +=x;
+                document.write("<p>",result[i].transactionHash , "   value : ", x.toLocaleString(), "</p>");
+                
+            }
+    
+        document.write("<p>Total block volume is: " , blockTotalVolume.toLocaleString(),"</p>");
+
+        var msg = String(block + '. block, Total Volume is: ' + blockTotalVolume.toLocaleString() + 'USDT');
+        send_message(msg);
+
+        console.log("Finished...");
+        blockTotalVolume = 0;
+    }
+    
+    function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function demo() {
+        while(true) {
+            await main();
+            await sleep(10000);
+        }
+    }
+
+    demo();
+</script>
+
+</body>
+     
+</html>
+  
+  
