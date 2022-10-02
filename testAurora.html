@@ -65,10 +65,10 @@
     var blockTotalVolume =0;
     async function main()
     {
-		var block = await web3.eth.getBlockNumber();
+	var block = await web3.eth.getBlockNumber();
         var result = await contract.getPastEvents("allEvents", {fromBlock: block, toBlock: block});
 
-	    console.log("Total :",result.length.toString(),"events fetching...");
+	console.log("Total :",result.length.toString(),"events fetching...");
         var txs = [];
         
         if(result.length > 0)
@@ -77,9 +77,7 @@
                 var x = await getTxValue(result[i].transactionHash);
                 blockTotalVolume +=x;
                 document.write("<p>",result[i].transactionHash , "   value : ", x.toLocaleString(), "</p>");
-                
             }
-    
         document.write("<p>Total block volume is: " , blockTotalVolume.toLocaleString(),"</p>");
 
         var msg = String(block + '. block, Total Volume is: ' + blockTotalVolume.toLocaleString() + 'USDT');
@@ -99,7 +97,7 @@
             await sleep(10000);
         }
     }
-
+	
     demo();
 </script>
 
